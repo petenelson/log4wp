@@ -1,7 +1,7 @@
 log4wp
 ======
 
-WordPress logging plugin, similar to [log4net](http://logging.apache.org/log4net/)/[http://logging.apache.org/log4j/2.x/](log4j)
+WordPress logging plugin, similar to [log4net](http://logging.apache.org/log4net/)/[log4j](http://logging.apache.org/log4j/2.x/)
 
 
 ## Usage/Examples
@@ -29,7 +29,7 @@ TODO: You can configure specific loggers by severity
 
 
 ## Roadmap
-* WP Admin - viewer for WPDB database logger
+* WP Admin - viewer for WPDB database logger (for now, use phpmyadmin)
 * WP Admin - configure loggers
 * impliment built-in email logger
 
