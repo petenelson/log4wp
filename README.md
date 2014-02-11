@@ -35,8 +35,15 @@ TODO: You can configure specific loggers by severity
 
 ## Revision History
 
+##### v0.0.3 Feb 10, 2014
+* Changed WPDB logger's table structure to two fields with separate unix timestamp and microtime
+* Added interface methods: can_return_log_entries(), get_log_entries(), get_distinct_loggers()
+* Added very basic WP Admin viewer for built-in WPDB logger
+
+
 ##### v0.0.2 Feb 10, 2014
 * Implemented WordPress database logger
+
 
 ##### v0.0.1 Feb 10, 2014
 * Initial commit
