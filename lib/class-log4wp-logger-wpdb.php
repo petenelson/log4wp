@@ -56,52 +56,47 @@ if (!class_exists('log4wp_Logger_WPDB') && interface_exists('ilog4wp_Logger')) {
 
 		public function get_log_entries($from_timestamp, $to_timestamp, $severity = null, $logger = NULL) {
 
-			if (class_exists('log4wp_LogEntry')) {
-				global $wpdb;
-				$sql = $wpdb->prepare('select * from ' . $wpdb->prefix . self::$table_name . ' where entry_date_timestamp >= %d and entry_date_timestamp <= %d ',
-					$from_timestamp,
-					$to_timestamp
-				);
+			global $wpdb;
+			$sql = $wpdb->prepare('select * from ' . $wpdb->prefix . self::$table_name . ' where entry_date_timestamp >= %d and entry_date_timestamp <= %d ',
+				$from_timestamp,
+				$to_timestamp
+			);
 
-				$sql .= ' order by entry_date_timestamp desc, entry_date_microtime desc limit 100';
-				//echo $sql;
+			$sql .= ' order by entry_date_timestamp desc, entry_date_microtime desc limit 100';
+			//echo $sql;
 
-				do_action('log4wp_debug', 'log4wp', 'get_log_entries sql: ' . $sql);
+			do_action('log4wp_debug', 'log4wp', 'get_log_entries sql: ' . $sql);
 
-				$results = $wpdb->get_results($sql);
-				for ($i=0; $i < count($results); $i++) {
-					$description = 'DEBUG';
+			$results = $wpdb->get_results($sql);
+			for ($i=0; $i < count($results); $i++) {
+				$description = 'DEBUG';
 
-					switch ($results[$i]->severity) {
-						case 0:
-							$description = 'FATAL';
-							break;
+				switch ($results[$i]->severity) {
+					case 0:
+						$description = 'FATAL';
+						break;
 
-						case 1:
-							$description = 'ERROR';
-							break;
+					case 1:
+						$description = 'ERROR';
+						break;
 
-						case 2:
-							$description = 'WARNING';
-							break;
+					case 2:
+						$description = 'WARNING';
+						break;
 
-						case 4:
-							$description = 'INFO';
-							break;
+					case 4:
+						$description = 'INFO';
+						break;
 
-						case 8:
-							$description = 'DEBUG';
-							break;
-					}
-
-					$results[$i]->severity_description = $description;
+					case 8:
+						$description = 'DEBUG';
+						break;
 				}
 
-				return $results;
-
+				$results[$i]->severity_description = $description;
 			}
 
-			return null;
+			return $results;
 
 		}
 
