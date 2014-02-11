@@ -16,9 +16,6 @@ require_once plugin_dir_path( __FILE__ ) . 'lib' . DIRECTORY_SEPARATOR . 'class-
 // WP Admin tools
 require_once plugin_dir_path( __FILE__ ) . 'lib' . DIRECTORY_SEPARATOR . 'class-log4wp-wp-admin.php' ;
 
-// log entry class
-require_once plugin_dir_path( __FILE__ ) . 'lib' . DIRECTORY_SEPARATOR . 'class-log4wp-logentry.php' ;
-
 // built-in wpdb logger
 require_once plugin_dir_path( __FILE__ ) . 'lib' . DIRECTORY_SEPARATOR . 'class-log4wp-logger-wpdb.php' ;
 
