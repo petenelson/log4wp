@@ -1,0 +1,12 @@
+.log4wp-page-view-logs .cell-event {
+	font-weight: bold;
+}
+
+.log4wp-page-view-logs .cell-event-severity-ERROR,
+.log4wp-page-view-logs .cell-event-severity-FATAL {
+	color: #ff0000;
+}
+
+.log4wp-page-view-logs .row-message {
+
+}

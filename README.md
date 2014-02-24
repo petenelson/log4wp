@@ -29,11 +29,20 @@ TODO: You can configure specific loggers by severity
 
 
 ## Roadmap
-* WP Admin - viewer for WPDB database logger (for now, use phpmyadmin)
-* WP Admin - configure loggers
-* impliment built-in email logger
+* WP Admin - viewer for WPDB database appender (for now, use phpmyadmin)
+* WP Admin - configure appenders (set logging level for each logger)
+* implement built-in email appender
+* add deletion hooks to remove tables
+* real-time log viewer
+* wp_cron job to purge old wpdb log entries
+
 
 ## Revision History
+
+##### v0.0.4 Feb 24, 2014
+* Changed methodolgy to better match log4net/log4j (multiple appenders and loggers)
+* Some formatting changes to the wpdb log viewer
+
 
 ##### v0.0.3 Feb 10, 2014
 * Changed WPDB logger's table structure to two fields with separate unix timestamp and microtime

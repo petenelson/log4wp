@@ -1,11 +1,14 @@
 <?php
 
-if (!class_exists('log4wp_Logger_WPDB') && interface_exists('ilog4wp_Logger')) {
+if (!class_exists('log4wp_Appender_WPDB') && interface_exists('ilog4wp_Appender')) {
 
-	class log4wp_Logger_WPDB implements ilog4wp_Logger {
+	class log4wp_Appender_WPDB implements ilog4wp_Appender {
 
 		static $table_name = 'log4wp_wpdb';
-		static public $date_time_format = 'Y-m-d H:i:s';
+
+		public function get_appender_name() {
+			return 'log4wp_wpdb_default';
+		}
 
 		public function log($severity, $logger, $message, exception $ex = null) {
 
@@ -102,7 +105,11 @@ if (!class_exists('log4wp_Logger_WPDB') && interface_exists('ilog4wp_Logger')) {
 
 
 		public function get_distinct_loggers() {
+			// TODO
+		}
 
+		public function get_date_time_format() {
+			return 'Y-m-d H:i:s';
 		}
 
 
