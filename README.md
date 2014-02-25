@@ -29,6 +29,7 @@ TODO: You can configure specific loggers by severity
 
 
 ## Roadmap
+* Instead of custom tables to track appenders, maybe custom post types?
 * WP Admin - viewer for WPDB database appender (for now, use phpmyadmin)
 * WP Admin - configure appenders (set logging level for each logger)
 * implement built-in email appender
