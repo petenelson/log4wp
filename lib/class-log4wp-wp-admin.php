@@ -7,15 +7,19 @@ if (!class_exists('log4wp_WP_Admin')) {
 		static $VERSION = '2014-02-24-01';
 		static $PAGE_VIEW_LOGS = 'log4wp-view-logs';
 
+		public function plugins_loaded($plugin_dir_url) {
+			add_action( 'admin_menu', array($this, 'admin_menu' ) );
+		}
+
 		public function admin_init() {
 
 		}
 
-		public function admin_enqueue_scripts($plugin_dir_url) {
+		function admin_enqueue_scripts($plugin_dir_url) {
 			wp_enqueue_style( 'log4wp-admin', $plugin_dir_url . 'css/log4wp-admin.css' , array(), self::$VERSION);
 		}
 
-		public function admin_menu() {
+		function admin_menu() {
 			$this->register_admin_menu();
 		}
 

@@ -18,7 +18,7 @@ if (!class_exists('log4wp') && interface_exists('ilog4wp_Appender')) {
 		var $appenders = array();
 
 
-		public function init() {
+		public function plugins_loaded() {
 			if (!$initialized) {
 
 				// register appenders via apply_filters

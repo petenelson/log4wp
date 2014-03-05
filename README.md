@@ -40,6 +40,10 @@ TODO: You can configure specific loggers by severity
 
 ## Revision History
 
+##### v0.0.5 Mar 4, 2014
+* Consolidated a bunch of code into plugins_loaded hooks
+
+
 ##### v0.0.4 Feb 24, 2014
 * Changed methodolgy to better match log4net/log4j (multiple appenders and loggers)
 * Some formatting changes to the wpdb log viewer
