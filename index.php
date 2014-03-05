@@ -3,7 +3,7 @@
 Plugin Name: log4wp
 Plugin URI: https://github.com/petenelson/log4wp
 Description: Versatile logging plugin for WordPress developers
-Version: 0.0.5
+Version: 0.0.6
 Author: Pete Nelson (@GunGeekATX)
 Author URI: https://twitter.com/GunGeekATX
 */

@@ -40,6 +40,12 @@ TODO: You can configure specific loggers by severity
 
 ## Revision History
 
+##### v0.0.6 Mar 5, 2014
+* Admin tools
+** Added 'View More' for large messages
+** Added 'View as JSON' for messages that start with '{' or '['
+
+
 ##### v0.0.5 Mar 4, 2014
 * Consolidated a bunch of code into plugins_loaded hooks
 

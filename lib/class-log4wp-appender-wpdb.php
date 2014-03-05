@@ -57,19 +57,8 @@ if (!class_exists('log4wp_Appender_WPDB') && interface_exists('ilog4wp_Appender'
 		}
 
 
-		public function get_log_entries($from_timestamp, $to_timestamp, $severity = null, $logger = NULL) {
-
+		function get_results($sql) {
 			global $wpdb;
-			$sql = $wpdb->prepare('select * from ' . $wpdb->prefix . self::$table_name . ' where entry_date_timestamp >= %d and entry_date_timestamp <= %d ',
-				$from_timestamp,
-				$to_timestamp
-			);
-
-			$sql .= ' order by entry_date_timestamp desc, entry_date_microtime desc limit 100';
-			//echo $sql;
-
-			do_action('log4wp_debug', 'log4wp', 'get_log_entries sql: ' . $sql);
-
 			$results = $wpdb->get_results($sql);
 			for ($i=0; $i < count($results); $i++) {
 				$description = 'DEBUG';
@@ -98,6 +87,38 @@ if (!class_exists('log4wp_Appender_WPDB') && interface_exists('ilog4wp_Appender'
 
 				$results[$i]->severity_description = $description;
 			}
+
+			return $results;
+		}
+
+
+		public function get_log_entry($id) {
+
+			global $wpdb;
+			$sql = $wpdb->prepare('select * from ' . $wpdb->prefix . self::$table_name . ' where id = %d ',
+				$id
+			);
+
+			$results = $this->get_results($sql);
+
+			return $results;
+		}
+
+
+		public function get_log_entries($from_timestamp, $to_timestamp, $severity = null, $logger = NULL) {
+
+			global $wpdb;
+			$sql = $wpdb->prepare('select * from ' . $wpdb->prefix . self::$table_name . ' where entry_date_timestamp >= %d and entry_date_timestamp <= %d ',
+				$from_timestamp,
+				$to_timestamp
+			);
+
+			$sql .= ' order by entry_date_timestamp desc, entry_date_microtime desc limit 100';
+			//echo $sql;
+
+			//do_action('log4wp_debug', 'log4wp', 'get_log_entries sql: ' . $sql);
+
+			$results = $this->get_results($sql);
 
 			return $results;
 
