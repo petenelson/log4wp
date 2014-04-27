@@ -3,12 +3,22 @@
 Plugin Name: log4wp
 Plugin URI: https://github.com/petenelson/log4wp
 Description: Versatile logging plugin for WordPress developers
-Version: 0.0.6
+Version: 0.0.7
 Author: Pete Nelson (@GunGeekATX)
 Author URI: https://twitter.com/GunGeekATX
 */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+// fun times at WordCamp, hacked in a basic Stream connector
+add_filter( 'wp_stream_connectors' , 'log4wp_stream_connector');
+
+function log4wp_stream_connector($classes) {
+	require_once plugin_dir_path( __FILe__ ) . 'lib/class-log4wp-stream-connector.php';
+	$classes[] = 'WP_Stream_Connector_log4wp';
+	return $classes;
+}
+
 
 // include required classes
 $class_files = array('class-log4wp.php', 'class-log4wp-wp-admin.php', 'class-log4wp-appender-wpdb.php');

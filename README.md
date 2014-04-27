@@ -40,6 +40,10 @@ TODO: You can configure specific loggers by severity
 
 ## Revision History
 
+##### v0.0.7 Apr 27, 2014
+* Added a Stream connector
+
+
 ##### v0.0.6 Mar 5, 2014
 * Admin tools
 ** Added 'View More' for large messages
